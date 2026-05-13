@@ -58,7 +58,26 @@ const pageMeta = {
   notifications: ["Notifications", "Today"],
   lessons: ["Lesson", "Lesson detail"],
   subscription: ["Plan", "Subscription"],
-  placement: ["Placement", "Find your level"]
+  placement: ["Placement", "Find your level"],
+  "screen-map": ["Design map", "30 screens"],
+  "lesson-library": ["Lessons", "Library"],
+  "conversation-history": ["History", "AI conversations"],
+  "pronunciation-lab": ["Practice", "Pronunciation lab"],
+  "listening-practice": ["Practice", "Listening"],
+  "writing-coach": ["Coach", "Writing"],
+  "grammar-coach": ["Coach", "Grammar"],
+  "review-session": ["Review", "Memory session"],
+  "word-detail": ["Words", "Word detail"],
+  phrasebook: ["Words", "Phrasebook"],
+  "daily-challenge": ["Challenge", "Daily sprint"],
+  achievement: ["Progress", "Achievements"],
+  calendar: ["Schedule", "Study calendar"],
+  "ai-plan": ["AI plan", "7-day path"],
+  "goal-settings": ["Settings", "Goals"],
+  "language-settings": ["Settings", "Languages"],
+  "voice-settings": ["Settings", "Voice"],
+  security: ["Settings", "Security"],
+  "help-center": ["Support", "Help center"]
 };
 
 languageButtons.forEach((button) => {
@@ -97,6 +116,12 @@ navItems.forEach((item) => {
   item.addEventListener("click", () => {
     showPage(item.dataset.target, item);
   });
+});
+
+document.addEventListener("click", (event) => {
+  const openButton = event.target.closest("[data-open-page]");
+  if (!openButton) return;
+  showPage(openButton.dataset.openPage);
 });
 
 modeTabs.forEach((tab) => {
@@ -177,15 +202,14 @@ function showPage(target, activeNavItem) {
   appKicker.textContent = pageMeta[target][0];
   appTitle.textContent = pageMeta[target][1];
   phone.classList.toggle("compact", target !== "home");
-  phone.classList.toggle("no-nav", target === "settings");
 
   navItems.forEach((navItem) => navItem.classList.remove("active"));
   if (activeNavItem) {
     activeNavItem.classList.add("active");
   }
-  const hideNavPages = ["settings", "notifications", "lessons", "subscription", "placement"];
-  bottomNav.style.display = hideNavPages.includes(target) ? "none" : "flex";
-  phone.classList.toggle("no-nav", hideNavPages.includes(target));
+  const mainPages = ["home", "practice", "words", "progress"];
+  bottomNav.style.display = mainPages.includes(target) ? "flex" : "none";
+  phone.classList.toggle("no-nav", !mainPages.includes(target));
 }
 
 function showAuth(target) {

@@ -294,6 +294,18 @@ h2 {
   line-height: 1.15;
 }
 
+.wide-action,
+.wide-submit {
+  width: 100%;
+  min-height: 42px;
+  margin-top: 12px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 850;
+  cursor: pointer;
+}
+
 .dialogue-card {
   margin-top: 14px;
   padding: 14px;
@@ -925,6 +937,268 @@ meter::-webkit-meter-optimum-value {
   gap: 14px;
   margin-top: 12px;
   padding: 14px;
+}
+
+.screen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.screen-grid button,
+.answer-grid button,
+.review-actions button {
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-align: left;
+  cursor: pointer;
+}
+
+.collection-list,
+.timeline-list,
+.rank-list {
+  display: grid;
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.collection-list article,
+.timeline-list article,
+.rank-list article {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 66px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.collection-list small,
+.timeline-list small,
+.rank-list em {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-style: normal;
+}
+
+.collection-list span,
+.rank-list span {
+  min-width: 38px;
+  min-height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #eaf7f2;
+  color: var(--teal-dark);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.lab-card,
+.writing-card,
+.challenge-card,
+.word-detail-card,
+.comparison-card {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.lab-card {
+  background: linear-gradient(150deg, #17202b 0%, #203346 100%);
+  color: #fff;
+}
+
+.lab-card .eyebrow,
+.lab-card p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.lab-card p,
+.writing-card p,
+.challenge-card p,
+.word-detail-card p {
+  margin: 8px 0 0;
+  color: #4b5563;
+  font-size: 0.84rem;
+  line-height: 1.38;
+}
+
+.sound-meter {
+  height: 12px;
+  margin-top: 18px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.sound-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--gold);
+}
+
+.answer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.answer-grid button:first-child {
+  border-color: #a9d9bf;
+  background: #eefaf2;
+}
+
+.fake-textarea {
+  min-height: 112px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.comparison-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.comparison-card div {
+  padding: 12px;
+  border-radius: 8px;
+  background: #f8f4ec;
+}
+
+.comparison-card small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.review-mode {
+  margin-top: 0;
+}
+
+.review-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.review-actions button {
+  text-align: center;
+}
+
+.word-detail-card {
+  background: linear-gradient(150deg, #17202b 0%, #203346 100%);
+  color: #fff;
+}
+
+.word-detail-card .eyebrow,
+.word-detail-card p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.word-detail-card strong {
+  display: block;
+  margin-top: 14px;
+}
+
+.memory-stats,
+.badge-grid,
+.calendar-grid {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.memory-stats {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.memory-stats article,
+.badge-grid article {
+  min-height: 72px;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  text-align: center;
+}
+
+.memory-stats strong,
+.badge-grid span {
+  color: var(--teal-dark);
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.memory-stats small,
+.badge-grid strong {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.challenge-card {
+  min-height: 250px;
+  display: grid;
+  align-content: center;
+  background: linear-gradient(150deg, #fff8e8 0%, #eaf7f2 100%);
+}
+
+.badge-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.rank-list article {
+  grid-template-columns: 38px 1fr auto;
+}
+
+.calendar-grid {
+  grid-template-columns: repeat(7, 1fr);
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.calendar-grid span,
+.calendar-grid strong {
+  min-height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  font-size: 0.68rem;
+}
+
+.calendar-grid span {
+  color: var(--muted);
+  font-weight: 850;
+}
+
+.calendar-grid strong {
+  background: #eaf7f2;
+  color: var(--teal-dark);
 }
 
 .settings-hero {

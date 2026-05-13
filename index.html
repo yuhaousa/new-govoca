@@ -75,6 +75,8 @@
             </article>
           </section>
 
+          <button class="wide-action" type="button" data-open-page="screen-map">View 30-screen design map</button>
+
           <article class="dialogue-card" aria-live="polite">
             <div class="chat-row ai">
               <span class="bubble-avatar">S</span>
@@ -298,7 +300,7 @@
                 <strong>Daily goal</strong>
                 <small>15 minutes per day</small>
               </div>
-              <button class="setting-control">Edit</button>
+              <button class="setting-control" data-open-page="goal-settings">Edit</button>
             </article>
             <article class="setting-row">
               <div>
@@ -323,11 +325,11 @@
           </section>
 
           <section class="settings-group" aria-label="App settings">
-            <button class="menu-row">
+            <button class="menu-row" data-open-page="language-settings">
               <span>Target language</span>
               <strong>Spanish</strong>
             </button>
-            <button class="menu-row">
+            <button class="menu-row" data-open-page="language-settings">
               <span>Native language</span>
               <strong>English</strong>
             </button>
@@ -338,6 +340,21 @@
             <button class="menu-row danger" id="sign-out-button">
               <span>Sign out</span>
               <strong>Login</strong>
+            </button>
+          </section>
+
+          <section class="settings-group" aria-label="Support and privacy">
+            <button class="menu-row" data-open-page="voice-settings">
+              <span>Voice settings</span>
+              <strong>Coach</strong>
+            </button>
+            <button class="menu-row" data-open-page="security">
+              <span>Security</span>
+              <strong>Manage</strong>
+            </button>
+            <button class="menu-row" data-open-page="help-center">
+              <span>Help center</span>
+              <strong>Open</strong>
             </button>
           </section>
         </section>
@@ -470,6 +487,208 @@
               <p>Good basics. Needs more listening and real conversation.</p>
             </div>
           </div>
+        </section>
+
+        <section class="page-screen" data-page="screen-map" aria-label="Screen directory page">
+          <button class="back-row" data-back-home type="button">Back to learning</button>
+          <section class="notice-summary">
+            <p class="eyebrow">Design map</p>
+            <h2>30 app screens</h2>
+            <p>Jump to the major product screens for the AI language learning app.</p>
+          </section>
+          <div class="screen-grid">
+            <button data-open-page="home">Home dashboard</button>
+            <button data-open-page="practice">AI practice room</button>
+            <button data-open-page="words">Word bank</button>
+            <button data-open-page="progress">Progress</button>
+            <button data-open-page="lessons">Lesson detail</button>
+            <button data-open-page="lesson-library">Lesson library</button>
+            <button data-open-page="conversation-history">Chat history</button>
+            <button data-open-page="pronunciation-lab">Pronunciation lab</button>
+            <button data-open-page="listening-practice">Listening practice</button>
+            <button data-open-page="writing-coach">Writing coach</button>
+            <button data-open-page="grammar-coach">Grammar coach</button>
+            <button data-open-page="review-session">Review session</button>
+            <button data-open-page="word-detail">Word detail</button>
+            <button data-open-page="phrasebook">Phrasebook</button>
+            <button data-open-page="daily-challenge">Daily challenge</button>
+            <button data-open-page="achievement">Achievements</button>
+            <button data-open-page="calendar">Study calendar</button>
+            <button data-open-page="ai-plan">AI study plan</button>
+            <button data-open-page="goal-settings">Goal settings</button>
+            <button data-open-page="language-settings">Language settings</button>
+            <button data-open-page="voice-settings">Voice settings</button>
+            <button data-open-page="security">Security</button>
+            <button data-open-page="help-center">Help center</button>
+            <button data-open-page="notifications">Notifications</button>
+            <button data-open-page="subscription">Subscription</button>
+          </div>
+        </section>
+
+        <section class="page-screen" data-page="lesson-library" aria-label="Lesson library page">
+          <button class="back-row" data-open-page="screen-map" type="button">Back to design map</button>
+          <section class="notice-summary">
+            <p class="eyebrow">Lesson library</p>
+            <h2>Choose what to practice</h2>
+            <p>AI-ranked lessons grouped by travel, work, pronunciation, and daily life.</p>
+          </section>
+          <div class="collection-list">
+            <article><strong>Travel basics</strong><small>12 lessons - airport, hotel, cafe</small><span>A1</span></article>
+            <article><strong>Work conversation</strong><small>8 lessons - meetings and updates</small><span>A2</span></article>
+            <article><strong>Pronunciation clinic</strong><small>10 drills - sounds and rhythm</small><span>Core</span></article>
+          </div>
+        </section>
+
+        <section class="page-screen" data-page="conversation-history" aria-label="Conversation history page">
+          <button class="back-row" data-open-page="screen-map" type="button">Back to design map</button>
+          <section class="notice-summary">
+            <p class="eyebrow">History</p>
+            <h2>Past AI conversations</h2>
+            <p>Review transcripts, feedback, and the phrases Sol corrected.</p>
+          </section>
+          <div class="timeline-list">
+            <article><strong>Cafe order</strong><small>82 speaking score - 4 corrections</small></article>
+            <article><strong>Street directions</strong><small>76 recall score - 6 new words</small></article>
+            <article><strong>Hotel check-in</strong><small>91 confidence score - 2 corrections</small></article>
+          </div>
+        </section>
+
+        <section class="page-screen" data-page="pronunciation-lab" aria-label="Pronunciation lab page">
+          <button class="back-row" data-open-page="screen-map" type="button">Back to design map</button>
+          <section class="lab-card">
+            <p class="eyebrow">Pronunciation lab</p>
+            <h2>Sound: rr</h2>
+            <p>Practice tongue placement, rhythm, and confidence with AI scoring.</p>
+            <div class="sound-meter"><span style="width: 78%"></span></div>
+          </section>
+          <div class="prompt-stack">
+            <button class="prompt-card active"><strong>perro</strong><span>Tap, listen, repeat</span></button>
+            <button class="prompt-card"><strong>carretera</strong><span>Focus on the middle sound</span></button>
+            <button class="prompt-card"><strong>arroz</strong><span>Hold the final rhythm</span></button>
+          </div>
+        </section>
+
+        <section class="page-screen" data-page="listening-practice" aria-label="Listening practice page">
+          <button class="back-row" data-open-page="screen-map" type="button">Back to design map</button>
+          <section class="lab-card">
+            <p class="eyebrow">Listening</p>
+            <h2>Catch the missing word</h2>
+            <p>Sol plays natural-speed audio and adapts the next clip to your mistakes.</p>
+          </section>
+          <div class="answer-grid">
+            <button>cuenta</button><button>puerta</button><button>calle</button><button>mesa</button>
+          </div>
+        </section>
+
+        <section class="page-screen" data-page="writing-coach" aria-label="Writing coach page">
+          <button class="back-row" data-open-page="screen-map" type="button">Back to design map</button>
+          <section class="writing-card">
+            <p class="eyebrow">Writing coach</p>
+            <h2>Write a short reply</h2>
+            <p class="fake-textarea">Hola, quisiera reservar una mesa para dos personas...</p>
+          </section>
+          <article class="coach-note"><strong>AI suggestion</strong><p>Use "me gustaria" for a slightly softer and more polite tone.</p></article>
+        </section>
+
+        <section class="page-screen" data-page="grammar-coach" aria-label="Grammar coach page">
+          <button class="back-row" data-open-page="screen-map" type="button">Back to design map</button>
+          <section class="notice-summary">
+            <p class="eyebrow">Grammar coach</p>
+            <h2>Ser vs estar</h2>
+            <p>Short explanations connected to mistakes from your speaking sessions.</p>
+          </section>
+          <div class="comparison-card"><div><strong>Soy listo</strong><small>I am clever</small></div><div><strong>Estoy listo</strong><small>I am ready</small></div></div>
+        </section>
+
+        <section class="page-screen" data-page="review-session" aria-label="Review session page">
+          <button class="back-row" data-open-page="screen-map" type="button">Back to design map</button>
+          <section class="flashcard review-mode">
+            <span class="level-pill">Review</span>
+            <p class="eyebrow">Recall check</p>
+            <h2>izquierda</h2>
+            <p>Say the meaning before revealing the answer.</p>
+            <button class="primary-action">I remembered</button>
+          </section>
+          <div class="review-actions"><button>Hard</button><button>Good</button><button>Easy</button></div>
+        </section>
+
+        <section class="page-screen" data-page="word-detail" aria-label="Word detail page">
+          <button class="back-row" data-open-page="screen-map" type="button">Back to design map</button>
+          <section class="word-detail-card">
+            <p class="eyebrow">Word detail</p>
+            <h2>la cuenta</h2>
+            <p>the bill, the check</p>
+            <strong>Example: La cuenta, por favor.</strong>
+          </section>
+          <div class="memory-stats"><article><strong>6</strong><small>reviews</small></article><article><strong>82%</strong><small>memory</small></article><article><strong>2d</strong><small>next due</small></article></div>
+        </section>
+
+        <section class="page-screen" data-page="phrasebook" aria-label="Phrasebook page">
+          <button class="back-row" data-open-page="screen-map" type="button">Back to design map</button>
+          <section class="notice-summary">
+            <p class="eyebrow">Phrasebook</p>
+            <h2>Useful saved phrases</h2>
+            <p>AI collects phrases from lessons and real practice sessions.</p>
+          </section>
+          <div class="timeline-list"><article><strong>Where is the station?</strong><small>Travel</small></article><article><strong>Can you repeat that?</strong><small>Conversation repair</small></article><article><strong>I have a reservation.</strong><small>Hotel</small></article></div>
+        </section>
+
+        <section class="page-screen" data-page="daily-challenge" aria-label="Daily challenge page">
+          <button class="back-row" data-open-page="screen-map" type="button">Back to design map</button>
+          <section class="challenge-card">
+            <p class="eyebrow">Daily challenge</p>
+            <h2>3-minute speaking sprint</h2>
+            <p>Answer five fast prompts and protect your streak.</p>
+            <button class="primary-action">Start sprint</button>
+          </section>
+        </section>
+
+        <section class="page-screen" data-page="achievement" aria-label="Achievements page">
+          <button class="back-row" data-open-page="screen-map" type="button">Back to design map</button>
+          <section class="notice-summary"><p class="eyebrow">Achievements</p><h2>Milestones unlocked</h2><p>Celebrate consistency, fluency growth, and word mastery.</p></section>
+          <div class="badge-grid"><article><span>18</span><strong>Streak</strong></article><article><span>50</span><strong>Words</strong></article><article><span>A2</span><strong>Level</strong></article><article><span>10</span><strong>Chats</strong></article></div>
+        </section>
+
+        <section class="page-screen" data-page="calendar" aria-label="Study calendar page">
+          <button class="back-row" data-open-page="screen-map" type="button">Back to design map</button>
+          <section class="notice-summary"><p class="eyebrow">Calendar</p><h2>Study rhythm</h2><p>Plan daily lessons around reminders, reviews, and speaking goals.</p></section>
+          <div class="calendar-grid"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span><strong>15</strong><strong>20</strong><strong>10</strong><strong>25</strong><strong>0</strong><strong>30</strong><strong>15</strong></div>
+        </section>
+
+        <section class="page-screen" data-page="ai-plan" aria-label="AI study plan page">
+          <button class="back-row" data-open-page="screen-map" type="button">Back to design map</button>
+          <section class="plan-card featured"><p class="eyebrow">AI plan</p><h2>7-day learning path</h2><p>Sol balances speaking, memory, and listening based on your weak spots.</p><button class="primary-action">Regenerate plan</button></section>
+          <div class="timeline-list"><article><strong>Day 1</strong><small>Cafe roleplay + 7 weak words</small></article><article><strong>Day 2</strong><small>Listening clips + pronunciation lab</small></article><article><strong>Day 3</strong><small>Street directions roleplay</small></article></div>
+        </section>
+
+        <section class="page-screen" data-page="goal-settings" aria-label="Goal settings page">
+          <button class="back-row" data-open-page="settings" type="button">Back to settings</button>
+          <section class="notice-summary"><p class="eyebrow">Goals</p><h2>Daily learning target</h2><p>Choose a pace that fits your schedule.</p></section>
+          <div class="answer-grid"><button>5 min</button><button>15 min</button><button>30 min</button><button>60 min</button></div>
+        </section>
+
+        <section class="page-screen" data-page="language-settings" aria-label="Language settings page">
+          <button class="back-row" data-open-page="settings" type="button">Back to settings</button>
+          <section class="notice-summary"><p class="eyebrow">Languages</p><h2>Learning setup</h2><p>Adjust target language, native language, and difficulty.</p></section>
+          <div class="collection-list"><article><strong>Target</strong><small>Spanish</small><span>Edit</span></article><article><strong>Native</strong><small>English</small><span>Edit</span></article><article><strong>Level</strong><small>A2 confident beginner</small><span>Edit</span></article></div>
+        </section>
+
+        <section class="page-screen" data-page="voice-settings" aria-label="Voice settings page">
+          <button class="back-row" data-open-page="settings" type="button">Back to settings</button>
+          <section class="notice-summary"><p class="eyebrow">Voice</p><h2>Speaking preferences</h2><p>Personalize AI voice speed, accent style, and correction strictness.</p></section>
+          <div class="settings-group"><article class="setting-row"><div><strong>Voice speed</strong><small>Normal</small></div><button class="setting-control">Edit</button></article><article class="setting-row"><div><strong>Correction mode</strong><small>Gentle coaching</small></div><button class="setting-control">Edit</button></article></div>
+        </section>
+
+        <section class="page-screen" data-page="security" aria-label="Security page">
+          <button class="back-row" data-open-page="settings" type="button">Back to settings</button>
+          <section class="notice-summary"><p class="eyebrow">Security</p><h2>Account protection</h2><p>Manage password, sign-in methods, and privacy controls.</p></section>
+          <div class="settings-group"><button class="menu-row"><span>Password</span><strong>Updated</strong></button><button class="menu-row"><span>Two-factor login</span><strong>Off</strong></button><button class="menu-row"><span>Learning data</span><strong>Export</strong></button></div>
+        </section>
+
+        <section class="page-screen" data-page="help-center" aria-label="Help center page">
+          <button class="back-row" data-open-page="settings" type="button">Back to settings</button>
+          <section class="notice-summary"><p class="eyebrow">Help</p><h2>Support center</h2><p>Find answers about AI feedback, billing, and lesson progress.</p></section>
+          <div class="timeline-list"><article><strong>How speaking scores work</strong><small>Pronunciation, rhythm, and confidence</small></article><article><strong>How to reset a lesson</strong><small>Start over without losing streaks</small></article><article><strong>Billing questions</strong><small>Plans, trial, and cancellation</small></article></div>
         </section>
 
         <nav class="bottom-nav" aria-label="Primary">
