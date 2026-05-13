@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinguaLift AI Mobile App Design</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="stage" aria-label="AI language learning mobile application concept">
+      <section class="phone" aria-label="LinguaLift AI app screen">
+        <header class="status-bar" aria-hidden="true">
+          <span>9:41</span>
+          <span class="status-icons">5G 92%</span>
+        </header>
+
+        <section class="top-panel">
+          <nav class="app-header" aria-label="App header">
+            <button class="icon-button" aria-label="Open profile" id="profile-button">JL</button>
+            <div>
+              <p class="eyebrow" id="app-kicker">Today's path</p>
+              <h1 id="app-title">Spanish with Sol</h1>
+            </div>
+            <button class="icon-button" aria-label="Open notifications">!</button>
+          </nav>
+
+          <div class="language-switcher" aria-label="Choose target language">
+            <button class="chip active" data-language="Spanish">Spanish</button>
+            <button class="chip" data-language="French">French</button>
+            <button class="chip" data-language="Korean">Korean</button>
+          </div>
+
+          <article class="tutor-card">
+            <img src="assets/ai-tutor.png" alt="Friendly AI tutor avatar" />
+            <div>
+              <p class="eyebrow">AI speaking coach</p>
+              <h2 id="coach-title">Practice ordering coffee</h2>
+              <p id="coach-copy">Sol adapts the next prompt to your accent, pace, and confidence.</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="page-screen active" data-page="home" aria-label="Home page">
+          <div class="streak-strip">
+            <div>
+              <span class="metric-value">18</span>
+              <span class="metric-label">day streak</span>
+            </div>
+            <div>
+              <span class="metric-value">74%</span>
+              <span class="metric-label">fluency</span>
+            </div>
+            <div>
+              <span class="metric-value">12</span>
+              <span class="metric-label">new words</span>
+            </div>
+          </div>
+
+          <article class="dialogue-card" aria-live="polite">
+            <div class="chat-row ai">
+              <span class="bubble-avatar">S</span>
+              <p>Say: <strong>Quisiera un caf&eacute; con leche.</strong></p>
+            </div>
+            <div class="chat-row learner">
+              <p id="learner-line">Quisiera un caf&eacute; con leche.</p>
+            </div>
+
+            <div class="voice-panel">
+              <div class="wave" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <button class="speak-button" id="speak-button" type="button">
+                <span id="speak-icon">mic</span>
+                <span id="speak-label">Start speaking</span>
+              </button>
+            </div>
+          </article>
+
+          <section class="section-heading">
+            <div>
+              <p class="eyebrow">Next lessons</p>
+              <h2>Adaptive practice</h2>
+            </div>
+            <button class="text-button">See all</button>
+          </section>
+
+          <div class="lesson-list">
+            <button class="lesson-card selected" data-title="Cafe roleplay" data-score="+8 fluency">
+              <span class="lesson-icon">01</span>
+              <span>
+                <strong>Cafe roleplay</strong>
+                <small>4 min - speaking</small>
+              </span>
+              <em>+8</em>
+            </button>
+            <button class="lesson-card" data-title="Sound: rr" data-score="+5 clarity">
+              <span class="lesson-icon">02</span>
+              <span>
+                <strong>Sound: rr</strong>
+                <small>2 min - pronunciation</small>
+              </span>
+              <em>+5</em>
+            </button>
+            <button class="lesson-card" data-title="Street directions" data-score="+6 recall">
+              <span class="lesson-icon">03</span>
+              <span>
+                <strong>Street directions</strong>
+                <small>6 min - conversation</small>
+              </span>
+              <em>+6</em>
+            </button>
+          </div>
+        </section>
+
+        <section class="page-screen" data-page="practice" aria-label="Practice page">
+          <section class="practice-hero">
+            <p class="eyebrow">Live practice</p>
+            <h2>AI conversation room</h2>
+            <p>Choose a situation and Sol will react like a real person, then coach one thing at a time.</p>
+          </section>
+
+          <div class="mode-tabs" aria-label="Practice modes">
+            <button class="mode-tab active">Roleplay</button>
+            <button class="mode-tab">Pronounce</button>
+            <button class="mode-tab">Quiz</button>
+          </div>
+
+          <article class="scenario-card">
+            <div>
+              <p class="eyebrow">Scenario</p>
+              <h2>Morning market</h2>
+              <p>Buy fruit, ask for the price, and respond to a follow-up question.</p>
+            </div>
+            <span class="level-pill">A2</span>
+          </article>
+
+          <div class="prompt-stack">
+            <button class="prompt-card active">
+              <strong>1. Warm up</strong>
+              <span>Repeat a model sentence with natural rhythm.</span>
+            </button>
+            <button class="prompt-card">
+              <strong>2. Reply</strong>
+              <span>Answer Sol without reading from the screen.</span>
+            </button>
+            <button class="prompt-card">
+              <strong>3. Repair</strong>
+              <span>Fix one grammar point and say it again.</span>
+            </button>
+          </div>
+
+          <article class="feedback-card">
+            <div class="score-ring">82</div>
+            <div>
+              <p class="eyebrow">AI feedback</p>
+              <h2>Clear vowels, slower ending</h2>
+              <p>Your first half is strong. Hold the final syllable a little longer.</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="page-screen" data-page="words" aria-label="Words page">
+          <section class="section-heading word-heading">
+            <div>
+              <p class="eyebrow">Word bank</p>
+              <h2>Review due today</h2>
+            </div>
+            <button class="text-button">Shuffle</button>
+          </section>
+
+          <article class="flashcard">
+            <span class="level-pill">Due now</span>
+            <p class="eyebrow">Spanish</p>
+            <h2>la cuenta</h2>
+            <p>the bill, the check</p>
+            <button class="primary-action">Reveal example</button>
+          </article>
+
+          <div class="word-grid">
+            <button class="word-tile strong">
+              <strong>gracias</strong>
+              <span>known</span>
+            </button>
+            <button class="word-tile">
+              <strong>azucar</strong>
+              <span>learning</span>
+            </button>
+            <button class="word-tile">
+              <strong>mesa</strong>
+              <span>learning</span>
+            </button>
+            <button class="word-tile weak">
+              <strong>izquierda</strong>
+              <span>needs work</span>
+            </button>
+          </div>
+
+          <section class="review-list">
+            <article class="review-row">
+              <span>12</span>
+              <div>
+                <strong>New words</strong>
+                <small>From your cafe and direction lessons</small>
+              </div>
+            </article>
+            <article class="review-row">
+              <span>7</span>
+              <div>
+                <strong>Weak words</strong>
+                <small>AI will bring these back tomorrow</small>
+              </div>
+            </article>
+          </section>
+        </section>
+
+        <section class="page-screen" data-page="progress" aria-label="Progress page">
+          <section class="progress-summary">
+            <p class="eyebrow">Progress</p>
+            <h2>Fluency is up 9% this week</h2>
+            <p>You are strongest in listening and everyday phrases.</p>
+          </section>
+
+          <section class="chart-card" aria-label="Weekly study chart">
+            <div class="bar" style="height: 38%"><span>Mon</span></div>
+            <div class="bar" style="height: 62%"><span>Tue</span></div>
+            <div class="bar" style="height: 46%"><span>Wed</span></div>
+            <div class="bar" style="height: 75%"><span>Thu</span></div>
+            <div class="bar" style="height: 52%"><span>Fri</span></div>
+            <div class="bar highlight" style="height: 88%"><span>Sat</span></div>
+            <div class="bar" style="height: 64%"><span>Sun</span></div>
+          </section>
+
+          <div class="skill-list">
+            <article class="skill-row">
+              <div>
+                <strong>Speaking</strong>
+                <small>Accent and sentence flow</small>
+              </div>
+              <meter min="0" max="100" value="74">74%</meter>
+            </article>
+            <article class="skill-row">
+              <div>
+                <strong>Listening</strong>
+                <small>Fast everyday audio</small>
+              </div>
+              <meter min="0" max="100" value="81">81%</meter>
+            </article>
+            <article class="skill-row">
+              <div>
+                <strong>Recall</strong>
+                <small>Words without hints</small>
+              </div>
+              <meter min="0" max="100" value="68">68%</meter>
+            </article>
+          </div>
+
+          <article class="coach-note">
+            <strong>Next best move</strong>
+            <p>Do one street-directions roleplay before learning new words.</p>
+          </article>
+        </section>
+
+        <section class="page-screen" data-page="settings" aria-label="User settings page">
+          <button class="back-row" id="settings-back" type="button">Back to learning</button>
+
+          <section class="settings-hero">
+            <div class="profile-mark">JL</div>
+            <div>
+              <p class="eyebrow">Account</p>
+              <h2>Jamie Lee</h2>
+              <p>jamie.lee@example.com</p>
+            </div>
+          </section>
+
+          <section class="settings-group" aria-label="Learning preferences">
+            <article class="setting-row">
+              <div>
+                <strong>Daily goal</strong>
+                <small>15 minutes per day</small>
+              </div>
+              <button class="setting-control">Edit</button>
+            </article>
+            <article class="setting-row">
+              <div>
+                <strong>Reminder</strong>
+                <small>8:00 PM, weekdays</small>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked />
+                <span></span>
+              </label>
+            </article>
+            <article class="setting-row">
+              <div>
+                <strong>Voice coaching</strong>
+                <small>Pronunciation and fluency feedback</small>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked />
+                <span></span>
+              </label>
+            </article>
+          </section>
+
+          <section class="settings-group" aria-label="App settings">
+            <button class="menu-row">
+              <span>Target language</span>
+              <strong>Spanish</strong>
+            </button>
+            <button class="menu-row">
+              <span>Native language</span>
+              <strong>English</strong>
+            </button>
+            <button class="menu-row">
+              <span>Subscription</span>
+              <strong>Plus trial</strong>
+            </button>
+            <button class="menu-row danger" id="sign-out-button">
+              <span>Sign out</span>
+              <strong>Login</strong>
+            </button>
+          </section>
+        </section>
+
+        <nav class="bottom-nav" aria-label="Primary">
+          <button class="nav-item active" aria-label="Home" data-target="home"><span class="nav-icon home-icon"></span><small>Home</small></button>
+          <button class="nav-item" aria-label="Practice" data-target="practice"><span class="nav-icon practice-icon"></span><small>Practice</small></button>
+          <button class="nav-item" aria-label="Words" data-target="words"><span class="nav-icon words-icon"></span><small>Words</small></button>
+          <button class="nav-item" aria-label="Progress" data-target="progress"><span class="nav-icon progress-icon"></span><small>Progress</small></button>
+        </nav>
+
+        <section class="auth-screen" data-auth="login" aria-label="Login page">
+          <div class="auth-brand">
+            <img src="assets/ai-tutor.png" alt="LinguaLift AI tutor avatar" />
+            <p class="eyebrow">LinguaLift AI</p>
+            <h2>Welcome back</h2>
+            <p>Continue your personal language path with Sol.</p>
+          </div>
+
+          <form class="auth-form">
+            <label>
+              Email
+              <input type="email" value="jamie.lee@example.com" />
+            </label>
+            <label>
+              Password
+              <input type="password" value="languageai" />
+            </label>
+            <button class="primary-action auth-submit" type="button" data-auth-close>Log in</button>
+          </form>
+
+          <div class="auth-links">
+            <button class="text-button" type="button">Forgot password?</button>
+            <button class="text-button" type="button" data-auth-open="register">Create account</button>
+          </div>
+        </section>
+
+        <section class="auth-screen" data-auth="register" aria-label="Register page">
+          <div class="auth-brand">
+            <img src="assets/ai-tutor.png" alt="LinguaLift AI tutor avatar" />
+            <p class="eyebrow">Start learning</p>
+            <h2>Create your account</h2>
+            <p>Set your goal and let the AI tutor build your first lesson.</p>
+          </div>
+
+          <form class="auth-form">
+            <label>
+              Name
+              <input type="text" value="Jamie Lee" />
+            </label>
+            <label>
+              Email
+              <input type="email" value="jamie.lee@example.com" />
+            </label>
+            <label>
+              Password
+              <input type="password" value="languageai" />
+            </label>
+            <div class="onboarding-picks" aria-label="Choose learning goal">
+              <button class="chip active" type="button">Travel</button>
+              <button class="chip" type="button">Work</button>
+              <button class="chip" type="button">Exams</button>
+            </div>
+            <button class="primary-action auth-submit" type="button" data-auth-close>Create account</button>
+          </form>
+
+          <div class="auth-links">
+            <button class="text-button" type="button" data-auth-open="login">Already have an account?</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
