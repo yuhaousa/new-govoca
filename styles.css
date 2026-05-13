@@ -258,6 +258,42 @@ h2 {
   font-weight: 720;
 }
 
+.feature-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.feature-strip article {
+  display: grid;
+  place-items: center;
+  gap: 6px;
+  min-height: 72px;
+  padding: 9px 4px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  text-align: center;
+}
+
+.feature-strip span {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #eaf7f2;
+  color: var(--teal-dark);
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+.feature-strip strong {
+  font-size: 0.68rem;
+  line-height: 1.15;
+}
+
 .dialogue-card {
   margin-top: 14px;
   padding: 14px;
@@ -1079,10 +1115,39 @@ meter::-webkit-meter-optimum-value {
   line-height: 1.4;
 }
 
+.login-feature-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.login-feature-list article {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.login-feature-list strong,
+.login-feature-list small {
+  display: block;
+}
+
+.login-feature-list strong {
+  font-size: 0.86rem;
+}
+
+.login-feature-list small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 1.32;
+}
+
 .auth-form {
   display: grid;
   gap: 12px;
-  margin-top: 26px;
+  margin-top: 18px;
 }
 
 .auth-form label {
