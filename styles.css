@@ -436,14 +436,22 @@ h2 {
 .chart-card,
 .coach-note,
 .settings-hero,
-.settings-group {
+.settings-group,
+.notice-summary,
+.lesson-detail-hero,
+.plan-card,
+.placement-card,
+.question-card,
+.level-preview {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
 }
 
 .practice-hero,
-.progress-summary {
+.progress-summary,
+.notice-summary,
+.placement-card {
   padding: 16px;
   background: linear-gradient(135deg, #ffffff 0%, #eaf7f2 100%);
 }
@@ -453,7 +461,12 @@ h2 {
 .scenario-card p,
 .feedback-card p,
 .flashcard p,
-.coach-note p {
+.coach-note p,
+.notice-summary p,
+.lesson-detail-hero p,
+.plan-card p,
+.placement-card p,
+.level-preview p {
   margin: 8px 0 0;
   color: #4b5563;
   font-size: 0.84rem;
@@ -733,6 +746,149 @@ meter::-webkit-meter-optimum-value {
 
 .coach-note strong {
   display: block;
+}
+
+.notification-list,
+.lesson-outline,
+.feature-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.notification-card,
+.lesson-outline article,
+.feature-list article {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 72px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.notification-card p,
+.notification-card small,
+.feature-list small,
+.lesson-outline small {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.34;
+}
+
+.notification-card.urgent {
+  background: #fff8e8;
+  border-color: #f0d28c;
+}
+
+.notification-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+.notification-card.urgent .notification-dot {
+  background: var(--coral);
+}
+
+.lesson-detail-hero,
+.plan-card {
+  padding: 16px;
+}
+
+.lesson-detail-hero {
+  background: linear-gradient(150deg, #17202b 0%, #203346 100%);
+  color: #fff;
+}
+
+.lesson-detail-hero .eyebrow,
+.lesson-detail-hero p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.lesson-start {
+  width: 100%;
+}
+
+.lesson-outline article {
+  grid-template-columns: 44px 1fr;
+}
+
+.lesson-outline span {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #e8eefc;
+  color: var(--blue);
+  font-weight: 900;
+}
+
+.plan-card.featured {
+  background: linear-gradient(160deg, #16202b 0%, #113f3f 100%);
+  color: #fff;
+}
+
+.plan-card.featured .eyebrow,
+.plan-card.featured p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.price {
+  display: block;
+  margin-top: 14px;
+  font-size: 1.32rem;
+}
+
+.feature-list article {
+  display: block;
+}
+
+.feature-list small {
+  display: block;
+}
+
+.question-card {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 14px;
+}
+
+.question-card strong {
+  margin-bottom: 4px;
+}
+
+.question-card button {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+}
+
+.question-card button:first-of-type {
+  border-color: #a9d9bf;
+  background: #eefaf2;
+}
+
+.level-preview {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: center;
+  gap: 14px;
+  margin-top: 12px;
+  padding: 14px;
 }
 
 .settings-hero {

@@ -40,13 +40,25 @@ const phone = document.querySelector(".phone");
 const appKicker = document.querySelector("#app-kicker");
 const appTitle = document.querySelector("#app-title");
 const settingsBack = document.querySelector("#settings-back");
+const notificationsButton = document.querySelector("#notifications-button");
+const seeLessonsButton = document.querySelector("#see-lessons-button");
+const subscriptionButton = document.querySelector("#subscription-button");
+const backHomeButtons = document.querySelectorAll("[data-back-home]");
+const backSettingsButtons = document.querySelectorAll("[data-back-settings]");
+const placementButton = document.querySelector("[data-open-placement]");
+const lessonDetailTitle = document.querySelector("#lesson-detail-title");
+const lessonDetailCopy = document.querySelector("#lesson-detail-copy");
 
 const pageMeta = {
   home: ["Today's path", "Spanish with Sol"],
   practice: ["Practice", "AI conversation room"],
   words: ["Word bank", "Review due today"],
   progress: ["Progress", "Weekly fluency"],
-  settings: ["Account", "User settings"]
+  settings: ["Account", "User settings"],
+  notifications: ["Notifications", "Today"],
+  lessons: ["Lesson", "Lesson detail"],
+  subscription: ["Plan", "Subscription"],
+  placement: ["Placement", "Find your level"]
 };
 
 languageButtons.forEach((button) => {
@@ -75,6 +87,9 @@ lessonCards.forEach((card) => {
     card.classList.add("selected");
     coachTitle.textContent = card.dataset.title;
     coachCopy.textContent = `AI recommendation: ${card.dataset.score} after one focused round.`;
+    lessonDetailTitle.textContent = card.dataset.title;
+    lessonDetailCopy.textContent = `${card.dataset.score} expected from one focused AI coaching round.`;
+    showPage("lessons");
   });
 });
 
@@ -110,6 +125,30 @@ settingsBack.addEventListener("click", () => {
   showPage("home", document.querySelector('[data-target="home"]'));
 });
 
+notificationsButton.addEventListener("click", () => {
+  showPage("notifications");
+});
+
+seeLessonsButton.addEventListener("click", () => {
+  showPage("lessons");
+});
+
+subscriptionButton.addEventListener("click", () => {
+  showPage("subscription");
+});
+
+backHomeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    showPage("home", document.querySelector('[data-target="home"]'));
+  });
+});
+
+backSettingsButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    showPage("settings");
+  });
+});
+
 signOutButton.addEventListener("click", () => {
   showAuth("login");
 });
@@ -127,6 +166,11 @@ authCloseButtons.forEach((button) => {
   });
 });
 
+placementButton.addEventListener("click", () => {
+  hideAuth();
+  showPage("placement");
+});
+
 function showPage(target, activeNavItem) {
   pageScreens.forEach((screen) => screen.classList.remove("active"));
   document.querySelector(`[data-page="${target}"]`).classList.add("active");
@@ -139,7 +183,9 @@ function showPage(target, activeNavItem) {
   if (activeNavItem) {
     activeNavItem.classList.add("active");
   }
-  bottomNav.style.display = target === "settings" ? "none" : "flex";
+  const hideNavPages = ["settings", "notifications", "lessons", "subscription", "placement"];
+  bottomNav.style.display = hideNavPages.includes(target) ? "none" : "flex";
+  phone.classList.toggle("no-nav", hideNavPages.includes(target));
 }
 
 function showAuth(target) {

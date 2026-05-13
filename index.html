@@ -21,7 +21,7 @@
               <p class="eyebrow" id="app-kicker">Today's path</p>
               <h1 id="app-title">Spanish with Sol</h1>
             </div>
-            <button class="icon-button" aria-label="Open notifications">!</button>
+            <button class="icon-button" aria-label="Open notifications" id="notifications-button">!</button>
           </nav>
 
           <div class="language-switcher" aria-label="Choose target language">
@@ -82,7 +82,7 @@
               <p class="eyebrow">Next lessons</p>
               <h2>Adaptive practice</h2>
             </div>
-            <button class="text-button">See all</button>
+            <button class="text-button" id="see-lessons-button">See all</button>
           </section>
 
           <div class="lesson-list">
@@ -312,7 +312,7 @@
               <span>Native language</span>
               <strong>English</strong>
             </button>
-            <button class="menu-row">
+            <button class="menu-row" id="subscription-button">
               <span>Subscription</span>
               <strong>Plus trial</strong>
             </button>
@@ -321,6 +321,136 @@
               <strong>Login</strong>
             </button>
           </section>
+        </section>
+
+        <section class="page-screen" data-page="notifications" aria-label="Notifications page">
+          <button class="back-row" data-back-home type="button">Back to learning</button>
+
+          <section class="notice-summary">
+            <p class="eyebrow">Today</p>
+            <h2>3 smart reminders</h2>
+            <p>Sol grouped the important updates so the learner can act quickly.</p>
+          </section>
+
+          <div class="notification-list">
+            <article class="notification-card urgent">
+              <span class="notification-dot"></span>
+              <div>
+                <strong>Speaking streak at risk</strong>
+                <p>Finish one 4-minute conversation before 8:00 PM.</p>
+              </div>
+              <small>Now</small>
+            </article>
+            <article class="notification-card">
+              <span class="notification-dot"></span>
+              <div>
+                <strong>7 words are ready</strong>
+                <p>Your weak words are scheduled for quick review.</p>
+              </div>
+              <small>1h</small>
+            </article>
+            <article class="notification-card">
+              <span class="notification-dot"></span>
+              <div>
+                <strong>New roleplay unlocked</strong>
+                <p>Try airport check-in after cafe practice.</p>
+              </div>
+              <small>3h</small>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-screen" data-page="lessons" aria-label="Lessons page">
+          <button class="back-row" data-back-home type="button">Back to learning</button>
+
+          <section class="lesson-detail-hero">
+            <p class="eyebrow">Lesson detail</p>
+            <h2 id="lesson-detail-title">Cafe roleplay</h2>
+            <p id="lesson-detail-copy">Practice a short cafe order with real-time AI feedback.</p>
+            <button class="primary-action lesson-start" type="button">Start lesson</button>
+          </section>
+
+          <div class="lesson-outline">
+            <article>
+              <span>1</span>
+              <div>
+                <strong>Listen</strong>
+                <small>Hear the phrase at natural speed.</small>
+              </div>
+            </article>
+            <article>
+              <span>2</span>
+              <div>
+                <strong>Speak</strong>
+                <small>Record your answer and get pronunciation feedback.</small>
+              </div>
+            </article>
+            <article>
+              <span>3</span>
+              <div>
+                <strong>Use it</strong>
+                <small>Reply in a short conversation with Sol.</small>
+              </div>
+            </article>
+          </div>
+
+          <article class="coach-note">
+            <strong>What AI will watch</strong>
+            <p>Word order, ending sounds, confidence, and how naturally you respond.</p>
+          </article>
+        </section>
+
+        <section class="page-screen" data-page="subscription" aria-label="Subscription page">
+          <button class="back-row" data-back-settings type="button">Back to settings</button>
+
+          <section class="plan-card featured">
+            <p class="eyebrow">Current plan</p>
+            <h2>Plus trial</h2>
+            <p>Unlimited AI roleplays, voice scoring, and custom review plans.</p>
+            <strong class="price">$8.99 / month</strong>
+            <button class="primary-action">Keep Plus</button>
+          </section>
+
+          <div class="feature-list">
+            <article>
+              <strong>Unlimited speaking rooms</strong>
+              <small>Practice travel, work, exam, and daily-life scenes.</small>
+            </article>
+            <article>
+              <strong>Advanced pronunciation report</strong>
+              <small>See exactly which sounds need work.</small>
+            </article>
+            <article>
+              <strong>Personal lesson builder</strong>
+              <small>AI creates lessons from your mistakes.</small>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-screen" data-page="placement" aria-label="Placement test page">
+          <button class="back-row" data-back-home type="button">Skip for now</button>
+
+          <section class="placement-card">
+            <p class="eyebrow">Placement test</p>
+            <h2>Find the right starting level</h2>
+            <p>Answer three quick prompts so Sol can tune lesson difficulty.</p>
+          </section>
+
+          <div class="question-card">
+            <strong>How would you order water?</strong>
+            <button>Quiero agua, por favor.</button>
+            <button>Agua es casa.</button>
+            <button>Yo agua caminar.</button>
+          </div>
+
+          <div class="level-preview">
+            <span class="score-ring">A2</span>
+            <div>
+              <p class="eyebrow">Estimated level</p>
+              <h2>Confident beginner</h2>
+              <p>Good basics. Needs more listening and real conversation.</p>
+            </div>
+          </div>
         </section>
 
         <nav class="bottom-nav" aria-label="Primary">
@@ -382,7 +512,7 @@
               <button class="chip" type="button">Work</button>
               <button class="chip" type="button">Exams</button>
             </div>
-            <button class="primary-action auth-submit" type="button" data-auth-close>Create account</button>
+            <button class="primary-action auth-submit" type="button" data-open-placement>Create account</button>
           </form>
 
           <div class="auth-links">
