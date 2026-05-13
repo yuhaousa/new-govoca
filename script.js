@@ -16,7 +16,7 @@ const languageData = {
   }
 };
 
-const languageButtons = document.querySelectorAll(".chip");
+const languageButtons = document.querySelectorAll(".language-switcher .chip");
 const coachTitle = document.querySelector("#coach-title");
 const coachCopy = document.querySelector("#coach-copy");
 const learnerLine = document.querySelector("#learner-line");
@@ -48,6 +48,7 @@ const backSettingsButtons = document.querySelectorAll("[data-back-settings]");
 const placementButton = document.querySelector("[data-open-placement]");
 const lessonDetailTitle = document.querySelector("#lesson-detail-title");
 const lessonDetailCopy = document.querySelector("#lesson-detail-copy");
+const toast = document.querySelector("#app-toast");
 
 const pageMeta = {
   home: ["Today's path", "Spanish with Sol"],
@@ -120,8 +121,77 @@ navItems.forEach((item) => {
 
 document.addEventListener("click", (event) => {
   const openButton = event.target.closest("[data-open-page]");
-  if (!openButton) return;
-  showPage(openButton.dataset.openPage);
+  if (openButton) {
+    showPage(openButton.dataset.openPage);
+    return;
+  }
+
+  const button = event.target.closest("button");
+  if (!button) return;
+
+  if (button.closest(".onboarding-picks")) {
+    setActiveWithin(button, ".onboarding-picks", ".chip");
+    showToast(`${button.textContent.trim()} goal selected`);
+    return;
+  }
+
+  if (button.closest(".mode-tabs")) {
+    showToast(`${button.textContent.trim()} mode selected`);
+    return;
+  }
+
+  if (button.closest(".question-card")) {
+    setActiveWithin(button, ".question-card", "button");
+    showToast(button.textContent.includes("Quiero") ? "Correct answer selected" : "Try another option");
+    return;
+  }
+
+  if (button.closest(".answer-grid")) {
+    setActiveWithin(button, ".answer-grid", "button");
+    showToast(`${button.textContent.trim()} selected`);
+    return;
+  }
+
+  if (button.closest(".review-actions")) {
+    setActiveWithin(button, ".review-actions", "button");
+    showToast(`Review marked: ${button.textContent.trim()}`);
+    return;
+  }
+
+  if (button.classList.contains("word-tile")) {
+    document.querySelectorAll(".word-tile").forEach((tile) => tile.classList.remove("choice-selected"));
+    button.classList.add("choice-selected");
+    const word = button.querySelector("strong").textContent;
+    document.querySelector(".flashcard h2").textContent = word;
+    document.querySelector(".flashcard p:last-of-type").textContent = button.querySelector("span").textContent;
+    showToast(`${word} opened in flashcard`);
+    return;
+  }
+
+  if (button.classList.contains("lesson-start")) {
+    showPage("practice", document.querySelector('[data-target="practice"]'));
+    showToast("Lesson started");
+    return;
+  }
+
+  if (button.classList.contains("primary-action")) {
+    handlePrimaryAction(button);
+    return;
+  }
+
+  if (button.classList.contains("setting-control")) {
+    showToast("Setting editor opened");
+    return;
+  }
+
+  if (button.classList.contains("menu-row")) {
+    showToast(`${button.querySelector("span")?.textContent || "Setting"} selected`);
+    return;
+  }
+
+  if (button.classList.contains("text-button")) {
+    handleTextButton(button);
+  }
 });
 
 modeTabs.forEach((tab) => {
@@ -138,9 +208,11 @@ promptCards.forEach((card) => {
   });
 });
 
-revealButton.addEventListener("click", () => {
-  revealButton.textContent = "La cuenta, por favor.";
-});
+if (revealButton) {
+  revealButton.addEventListener("click", () => {
+    revealButton.textContent = "La cuenta, por favor.";
+  });
+}
 
 profileButton.addEventListener("click", () => {
   showPage("settings");
@@ -222,4 +294,71 @@ function showAuth(target) {
 function hideAuth() {
   phone.classList.remove("auth-mode");
   authScreens.forEach((screen) => screen.classList.remove("active"));
+}
+
+function setActiveWithin(button, containerSelector, itemSelector) {
+  const container = button.closest(containerSelector);
+  container.querySelectorAll(itemSelector).forEach((item) => {
+    item.classList.remove("active", "choice-selected");
+  });
+  button.classList.add(button.classList.contains("chip") ? "active" : "choice-selected");
+}
+
+function handlePrimaryAction(button) {
+  const label = button.textContent.trim();
+
+  if (label === "Reveal example" || label === "La cuenta, por favor.") {
+    button.textContent = "La cuenta, por favor.";
+    showToast("Example revealed");
+    return;
+  }
+
+  if (label === "Keep Plus") {
+    button.textContent = "Plus active";
+    showToast("Subscription confirmed");
+    return;
+  }
+
+  if (label === "I remembered") {
+    showToast("Memory review saved");
+    return;
+  }
+
+  if (label === "Start sprint") {
+    button.textContent = "Sprint running...";
+    showToast("Daily challenge started");
+    return;
+  }
+
+  if (label === "Regenerate plan") {
+    button.textContent = "Plan refreshed";
+    showToast("AI plan regenerated");
+    return;
+  }
+
+  showToast(`${label} selected`);
+}
+
+function handleTextButton(button) {
+  const label = button.textContent.trim();
+
+  if (label === "Shuffle") {
+    const grid = document.querySelector(".word-grid");
+    grid.append(...Array.from(grid.children).reverse());
+    showToast("Words shuffled");
+    return;
+  }
+
+  if (label === "Forgot password?") {
+    showToast("Password reset link sent");
+  }
+}
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 1500);
 }

@@ -37,6 +37,15 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
+.choice-selected,
+.screen-grid button.choice-selected,
+.answer-grid button.choice-selected,
+.review-actions button.choice-selected {
+  border-color: rgba(8, 127, 123, 0.52);
+  background: #eaf7f2;
+  color: var(--teal-dark);
+}
+
 .stage {
   min-height: 100vh;
   display: grid;
@@ -1361,6 +1370,33 @@ meter::-webkit-meter-optimum-value {
 
 .auth-screen.active {
   display: flex;
+}
+
+.toast {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 24px;
+  z-index: 8;
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(23, 32, 43, 0.94);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 850;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .auth-brand {
