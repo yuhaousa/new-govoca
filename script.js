@@ -50,6 +50,14 @@ const lessonDetailTitle = document.querySelector("#lesson-detail-title");
 const lessonDetailCopy = document.querySelector("#lesson-detail-copy");
 const toast = document.querySelector("#app-toast");
 
+const settingOptions = {
+  "voice-speed": ["Slow", "Normal", "Fast"],
+  "correction-mode": ["Gentle coaching", "Detailed correction", "Strict scoring"],
+  "target-language": ["Spanish", "French", "Korean"],
+  "native-language": ["English", "Mandarin", "Spanish"],
+  level: ["A1 starter", "A2 beginner", "B1 intermediate"]
+};
+
 const pageMeta = {
   home: ["Today's path", "Spanish with Sol"],
   practice: ["Practice", "AI conversation room"],
@@ -129,6 +137,12 @@ document.addEventListener("click", (event) => {
   const button = event.target.closest("button");
   if (!button) return;
 
+  const settingKey = button.dataset.settingEdit;
+  if (settingKey) {
+    editSetting(button, settingKey);
+    return;
+  }
+
   if (button.closest(".onboarding-picks")) {
     setActiveWithin(button, ".onboarding-picks", ".chip");
     showToast(`${button.textContent.trim()} goal selected`);
@@ -148,6 +162,12 @@ document.addEventListener("click", (event) => {
 
   if (button.closest(".answer-grid")) {
     setActiveWithin(button, ".answer-grid", "button");
+    if (button.closest('[data-page="goal-settings"]')) {
+      const dailyGoal = document.querySelector(".setting-row strong");
+      const dailyGoalMeta = document.querySelector(".setting-row small");
+      dailyGoal.textContent = "Daily goal";
+      dailyGoalMeta.textContent = `${button.textContent.trim()} per day`;
+    }
     showToast(`${button.textContent.trim()} selected`);
     return;
   }
@@ -361,4 +381,23 @@ function showToast(message) {
   showToast.timer = setTimeout(() => {
     toast.classList.remove("show");
   }, 1500);
+}
+
+function editSetting(button, key) {
+  const options = settingOptions[key];
+  if (!options) {
+    showToast("Setting updated");
+    return;
+  }
+
+  const valueNode = button.closest(".setting-row")?.querySelector("[data-setting-value]") || button.querySelector("strong");
+  const current = valueNode.textContent.trim();
+  const next = options[(options.indexOf(current) + 1) % options.length] || options[0];
+  valueNode.textContent = next;
+
+  if (key === "target-language") {
+    document.querySelector('[data-open-page="language-settings"] strong').textContent = next;
+  }
+
+  showToast(`${button.querySelector("span")?.textContent || key.replaceAll("-", " ")} set to ${next}`);
 }

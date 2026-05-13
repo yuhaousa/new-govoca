@@ -670,13 +670,17 @@
         <section class="page-screen" data-page="language-settings" aria-label="Language settings page">
           <button class="back-row" data-open-page="settings" type="button">Back to settings</button>
           <section class="notice-summary"><p class="eyebrow">Languages</p><h2>Learning setup</h2><p>Adjust target language, native language, and difficulty.</p></section>
-          <div class="collection-list"><article><strong>Target</strong><small>Spanish</small><span>Edit</span></article><article><strong>Native</strong><small>English</small><span>Edit</span></article><article><strong>Level</strong><small>A2 confident beginner</small><span>Edit</span></article></div>
+          <div class="settings-group">
+            <button class="menu-row setting-edit" data-setting-edit="target-language"><span>Target language</span><strong>Spanish</strong></button>
+            <button class="menu-row setting-edit" data-setting-edit="native-language"><span>Native language</span><strong>English</strong></button>
+            <button class="menu-row setting-edit" data-setting-edit="level"><span>Level</span><strong>A2 beginner</strong></button>
+          </div>
         </section>
 
         <section class="page-screen" data-page="voice-settings" aria-label="Voice settings page">
           <button class="back-row" data-open-page="settings" type="button">Back to settings</button>
           <section class="notice-summary"><p class="eyebrow">Voice</p><h2>Speaking preferences</h2><p>Personalize AI voice speed, accent style, and correction strictness.</p></section>
-          <div class="settings-group"><article class="setting-row"><div><strong>Voice speed</strong><small>Normal</small></div><button class="setting-control">Edit</button></article><article class="setting-row"><div><strong>Correction mode</strong><small>Gentle coaching</small></div><button class="setting-control">Edit</button></article></div>
+          <div class="settings-group"><article class="setting-row"><div><strong>Voice speed</strong><small data-setting-value="voice-speed">Normal</small></div><button class="setting-control" data-setting-edit="voice-speed">Edit</button></article><article class="setting-row"><div><strong>Correction mode</strong><small data-setting-value="correction-mode">Gentle coaching</small></div><button class="setting-control" data-setting-edit="correction-mode">Edit</button></article></div>
         </section>
 
         <section class="page-screen" data-page="security" aria-label="Security page">
