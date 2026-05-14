@@ -645,6 +645,19 @@ h2 {
   font-size: 2rem;
 }
 
+.learning-flashcard {
+  min-height: 270px;
+}
+
+.learning-flashcard small {
+  display: block;
+  min-height: 38px;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
 .flashcard .level-pill {
   position: absolute;
   right: 14px;
@@ -661,6 +674,61 @@ h2 {
   font-size: 0.84rem;
   font-weight: 900;
   cursor: pointer;
+}
+
+.flashcard-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.flashcard-actions button {
+  min-height: 38px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.flashcard-actions button.choice-selected {
+  background: var(--gold);
+  color: var(--ink);
+  border-color: transparent;
+}
+
+.flashcard-progress {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.flashcard-progress strong,
+.flashcard-progress small {
+  display: block;
+}
+
+.flashcard-progress small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.flashcard-progress .sound-meter {
+  margin-top: 0;
+  background: #e8e2d8;
+}
+
+.flashcard-progress .sound-meter span {
+  background: var(--teal);
 }
 
 .word-grid {

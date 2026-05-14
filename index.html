@@ -190,13 +190,27 @@
             <button class="text-button">Shuffle</button>
           </section>
 
-          <article class="flashcard">
-            <span class="level-pill">Due now</span>
+          <article class="flashcard learning-flashcard" id="learning-flashcard">
+            <span class="level-pill" id="flashcard-status">Due now</span>
             <p class="eyebrow">Spanish</p>
-            <h2>la cuenta</h2>
-            <p>the bill, the check</p>
-            <button class="primary-action">Reveal example</button>
+            <h2 id="flashcard-word">la cuenta</h2>
+            <p id="flashcard-meaning">Tap reveal when you remember the meaning.</p>
+            <small id="flashcard-example">Example appears after reveal.</small>
+            <button class="primary-action" id="flashcard-reveal" type="button">Reveal answer</button>
+            <div class="flashcard-actions" aria-label="Rate this word">
+              <button type="button" data-flash-rating="hard">Hard</button>
+              <button type="button" data-flash-rating="learning">Learning</button>
+              <button type="button" data-flash-rating="known">Know</button>
+            </div>
           </article>
+
+          <section class="flashcard-progress" aria-label="Flashcard progress">
+            <div>
+              <strong id="flashcard-count">1 / 5</strong>
+              <small>review cards</small>
+            </div>
+            <div class="sound-meter"><span id="flashcard-progress-bar" style="width: 20%"></span></div>
+          </section>
 
           <div class="word-grid">
             <button class="word-tile strong">

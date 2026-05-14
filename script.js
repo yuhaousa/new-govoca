@@ -49,6 +49,14 @@ const placementButton = document.querySelector("[data-open-placement]");
 const lessonDetailTitle = document.querySelector("#lesson-detail-title");
 const lessonDetailCopy = document.querySelector("#lesson-detail-copy");
 const toast = document.querySelector("#app-toast");
+const flashcardWord = document.querySelector("#flashcard-word");
+const flashcardMeaning = document.querySelector("#flashcard-meaning");
+const flashcardExample = document.querySelector("#flashcard-example");
+const flashcardStatus = document.querySelector("#flashcard-status");
+const flashcardCount = document.querySelector("#flashcard-count");
+const flashcardProgressBar = document.querySelector("#flashcard-progress-bar");
+const flashcardReveal = document.querySelector("#flashcard-reveal");
+const flashcardRatingButtons = document.querySelectorAll("[data-flash-rating]");
 
 const settingOptions = {
   "voice-speed": ["Slow", "Normal", "Fast"],
@@ -57,6 +65,43 @@ const settingOptions = {
   "native-language": ["English", "Mandarin", "Spanish"],
   level: ["A1 starter", "A2 beginner", "B1 intermediate"]
 };
+
+const flashcards = [
+  {
+    word: "la cuenta",
+    meaning: "the bill, the check",
+    example: "La cuenta, por favor.",
+    status: "Due now"
+  },
+  {
+    word: "gracias",
+    meaning: "thank you",
+    example: "Gracias por ayudarme.",
+    status: "Known"
+  },
+  {
+    word: "azucar",
+    meaning: "sugar",
+    example: "Cafe con azucar, por favor.",
+    status: "Learning"
+  },
+  {
+    word: "mesa",
+    meaning: "table",
+    example: "Tenemos una mesa para dos.",
+    status: "Learning"
+  },
+  {
+    word: "izquierda",
+    meaning: "left",
+    example: "Gira a la izquierda.",
+    status: "Needs work"
+  }
+];
+
+let currentFlashcard = 0;
+let flashcardRevealed = false;
+let flashcardAdvanceTimer;
 
 const pageMeta = {
   home: ["Today's path", "Spanish with Sol"],
@@ -182,9 +227,19 @@ document.addEventListener("click", (event) => {
     document.querySelectorAll(".word-tile").forEach((tile) => tile.classList.remove("choice-selected"));
     button.classList.add("choice-selected");
     const word = button.querySelector("strong").textContent;
-    document.querySelector(".flashcard h2").textContent = word;
-    document.querySelector(".flashcard p:last-of-type").textContent = button.querySelector("span").textContent;
+    const index = flashcards.findIndex((card) => card.word === word);
+    if (index >= 0) {
+      clearTimeout(flashcardAdvanceTimer);
+      currentFlashcard = index;
+      renderFlashcard(false);
+    }
     showToast(`${word} opened in flashcard`);
+    return;
+  }
+
+  const flashRating = button.dataset.flashRating;
+  if (flashRating) {
+    rateFlashcard(button, flashRating);
     return;
   }
 
@@ -228,11 +283,7 @@ promptCards.forEach((card) => {
   });
 });
 
-if (revealButton) {
-  revealButton.addEventListener("click", () => {
-    revealButton.textContent = "La cuenta, por favor.";
-  });
-}
+renderFlashcard(false);
 
 profileButton.addEventListener("click", () => {
   showPage("settings");
@@ -327,9 +378,14 @@ function setActiveWithin(button, containerSelector, itemSelector) {
 function handlePrimaryAction(button) {
   const label = button.textContent.trim();
 
-  if (label === "Reveal example" || label === "La cuenta, por favor.") {
-    button.textContent = "La cuenta, por favor.";
-    showToast("Example revealed");
+  if (button.id === "flashcard-reveal") {
+    if (!flashcardRevealed) {
+      renderFlashcard(true);
+      showToast("Answer revealed");
+    } else {
+      nextFlashcard();
+      showToast("Next flashcard");
+    }
     return;
   }
 
@@ -381,6 +437,45 @@ function showToast(message) {
   showToast.timer = setTimeout(() => {
     toast.classList.remove("show");
   }, 1500);
+}
+
+function renderFlashcard(revealed) {
+  const card = flashcards[currentFlashcard];
+  flashcardRevealed = revealed;
+
+  flashcardWord.textContent = card.word;
+  flashcardStatus.textContent = card.status;
+  flashcardMeaning.textContent = revealed ? card.meaning : "Tap reveal when you remember the meaning.";
+  flashcardExample.textContent = revealed ? `Example: ${card.example}` : "Example appears after reveal.";
+  flashcardReveal.textContent = revealed ? "Next card" : "Reveal answer";
+  flashcardCount.textContent = `${currentFlashcard + 1} / ${flashcards.length}`;
+  flashcardProgressBar.style.width = `${((currentFlashcard + 1) / flashcards.length) * 100}%`;
+  flashcardRatingButtons.forEach((button) => button.classList.remove("choice-selected"));
+}
+
+function rateFlashcard(button, rating) {
+  if (!flashcardRevealed) {
+    renderFlashcard(true);
+  }
+
+  flashcardRatingButtons.forEach((item) => item.classList.remove("choice-selected"));
+  button.classList.add("choice-selected");
+  const statusMap = {
+    hard: "Needs work",
+    learning: "Learning",
+    known: "Known"
+  };
+  flashcards[currentFlashcard].status = statusMap[rating];
+  flashcardStatus.textContent = statusMap[rating];
+  showToast(`${flashcards[currentFlashcard].word} marked ${statusMap[rating].toLowerCase()}`);
+  clearTimeout(flashcardAdvanceTimer);
+  flashcardAdvanceTimer = setTimeout(nextFlashcard, 650);
+}
+
+function nextFlashcard() {
+  clearTimeout(flashcardAdvanceTimer);
+  currentFlashcard = (currentFlashcard + 1) % flashcards.length;
+  renderFlashcard(false);
 }
 
 function editSetting(button, key) {
